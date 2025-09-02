@@ -1,0 +1,609 @@
+# Shaheer Farrukh Portfolio - Technical Documentation & Context
+
+## Project Overview
+A single-page portfolio website for Shaheer Farrukh, a Mechanical Engineer specializing in CFD, thermal systems, and sustainable energy solutions. Built with React, TypeScript, and Tailwind CSS using Vite as the build tool.
+
+## Technology Stack
+- **Frontend Framework**: React 18.3.1 with TypeScript
+- **Build Tool**: Vite 5.4.2
+- **Styling**: Tailwind CSS 3.4.1 with PostCSS and Autoprefixer
+- **Icons**: Lucide React 0.344.0
+- **Linting**: ESLint with TypeScript support
+- **Development**: Hot module replacement via Vite dev server
+
+## Project Structure & Architecture
+
+### File Organization
+```
+src/
+├── main.tsx                 # Application entry point
+├── App.tsx                  # Main app component with scroll tracking
+├── index.css               # Global styles and custom animations
+├── vite-env.d.ts           # Vite type definitions
+└── components/
+    ├── Header.tsx          # Navigation with smooth scroll
+    ├── Hero.tsx            # Landing section with CTAs
+    ├── Skills.tsx          # Filterable skills showcase
+    ├── Experience.tsx      # Work experience timeline
+    ├── Projects.tsx        # Project cards with modal system
+    ├── FinalYearProject.tsx # Featured FYP section
+    ├── Education.tsx       # Academic background
+    ├── Contact.tsx         # Contact form with validation
+    └── Footer.tsx          # Social links and copyright
+```
+
+### Component Architecture
+
+#### App.tsx (Main Container)
+- **State Management**: 
+  - `activeSection` (string): Tracks current viewport section for navigation highlighting
+- **Side Effects**:
+  - Scroll event listener for section detection
+  - Automatic cleanup on component unmount
+- **Functionality**:
+  - Renders all page sections in order
+  - Passes activeSection to Header for navigation state
+  - Implements smooth scroll behavior
+
+#### Header.tsx (Navigation)
+- **Props**: `activeSection` (string)
+- **State Management**:
+  - `isMenuOpen` (boolean): Controls mobile menu visibility
+- **Functionality**:
+  - Fixed positioning with backdrop blur
+  - Smooth scroll navigation to sections
+  - Responsive mobile hamburger menu
+  - Active section highlighting
+  - Focus management for accessibility
+
+#### Hero.tsx (Landing Section)
+- **Functionality**:
+  - Primary and secondary CTAs with smooth scroll
+  - Contact information display
+  - Animated chevron scroll indicator
+  - Gradient button effects with hover states
+
+#### Skills.tsx (Skills Showcase)
+- **State Management**:
+  - `selectedCategory` (string): Controls skill filtering ('all' | category name)
+- **Data Structure**:
+  - `skillCategories` object with categorized skills arrays
+- **Functionality**:
+  - Dynamic skill filtering by category
+  - Animated skill cards with staggered entrance
+  - Responsive grid layout
+  - Hover effects and focus states
+
+#### Experience.tsx (Work Timeline)
+- **Functionality**:
+  - Timeline visualization with gradient line
+  - Company logo placeholder with icon
+  - Expandable achievement bullets
+  - Leadership highlight with special styling
+
+#### Projects.tsx (Project Showcase)
+- **State Management**:
+  - `selectedProject` (number | null): Controls modal visibility
+- **Data Structure**:
+  - `projects` array with complete project objects containing:
+    - id, title, tools, summary, icon, metrics, description, tech, imageUrl
+- **Functionality**:
+  - Grid layout of project cards
+  - Modal system for detailed project views
+  - Image gallery with thumbnail navigation
+  - Technology tag display
+  - Responsive design with mobile optimization
+
+#### FinalYearProject.tsx (Featured Research)
+- **State Management**:
+  - `selectedImage` (number): Controls image gallery navigation
+- **Data Structure**:
+  - `images` array with url, alt, and caption
+  - `keyMetrics` array with label, value, and icon
+- **Functionality**:
+  - Multi-image gallery with navigation
+  - Technical specifications grid
+  - Download CTA for research paper
+  - Detailed metrics visualization
+
+#### Education.tsx (Academic Background)
+- **Functionality**:
+  - Educational timeline with institution details
+  - Grade and achievement highlighting
+  - Subject tag display
+  - Responsive card layout
+
+#### Contact.tsx (Contact Form)
+- **State Management**:
+  - `formData` object: name, email, subject, message
+  - `isSubmitting` (boolean): Loading state
+  - `isSubmitted` (boolean): Success state
+  - `error` (string): Error message display
+- **Functionality**:
+  - Form validation (required fields, email format)
+  - Subject dropdown with predefined options
+  - Success/error state management
+  - Accessibility features (labels, focus management)
+  - Simulated form submission (demo implementation)
+
+#### Footer.tsx (Site Footer)
+- **Functionality**:
+  - Social media links (email, LinkedIn)
+  - Copyright information
+  - Minimal design with hover effects
+
+## Data Workflow
+
+### Content Source
+All content is sourced directly from the provided CV with exact preservation of:
+- Project descriptions and metrics
+- Technical specifications
+- Achievement percentages
+- Tool and technology lists
+- Contact information
+- Educational details
+
+### State Management Flow
+1. **App Level**: Scroll position tracking for navigation
+2. **Component Level**: Local state for UI interactions
+3. **No Global State**: Each component manages its own state independently
+
+### Image Workflow
+- External stock photos from Pexels for project visualizations
+- Responsive image loading with proper alt text
+- Gallery navigation for multi-image sections
+- Hover effects and zoom interactions
+
+## UI Workflow & User Journey
+
+### Navigation Flow
+1. **Landing**: Hero section with clear value proposition
+2. **Skills**: Interactive filtering to explore technical capabilities
+3. **Experience**: Professional background with leadership highlights
+4. **Projects**: Expandable cards for detailed project exploration
+5. **Research**: Featured Final Year Project with technical depth
+6. **Education**: Academic credentials and achievements
+7. **Contact**: Direct communication pathway
+
+### Interaction Patterns
+- **Smooth Scroll**: All navigation uses smooth scrolling behavior
+- **Modal System**: Projects open in overlay modals with escape handling
+- **Form Validation**: Real-time validation with error messaging
+- **Responsive Design**: Mobile-first approach with breakpoint optimization
+
+## Design System
+
+### Color Palette
+- **Background**: Deep charcoal (#0f172a, #1e293b)
+- **Primary Accent**: Cyan (#06b6d4, #0891b2)
+- **Secondary Accent**: Yellow/Gold (#eab308, #f59e0b)
+- **Text**: High contrast whites and grays (#ffffff, #e2e8f0, #94a3b8)
+- **Success**: Green (#10b981)
+- **Error**: Red (#ef4444)
+
+### Typography Scale
+- **Headings**: 4xl-7xl (36px-72px) with bold weight
+- **Body**: Base-xl (16px-20px) with normal weight
+- **Small Text**: sm-xs (12px-14px) for metadata
+
+### Spacing System
+- **Base Unit**: 8px (Tailwind's default)
+- **Component Padding**: 4-8 (16px-32px)
+- **Section Spacing**: 20 (80px) vertical
+- **Grid Gaps**: 4-8 (16px-32px)
+
+### Animation Specifications
+- **Duration**: 300ms for most transitions
+- **Easing**: cubic-bezier(0.4, 0, 0.2, 1)
+- **Hover Scale**: 1.03-1.05 for buttons
+- **Focus Ring**: 4px cyan with offset
+
+## Technical Implementation Details
+
+### Performance Optimizations
+- **Lazy Loading**: Images load as needed
+- **Component Splitting**: Modular architecture for code splitting
+- **CSS Animations**: Hardware-accelerated transforms
+- **Minimal JavaScript**: Efficient event handling
+
+### Accessibility Features
+- **Keyboard Navigation**: Full keyboard support for all interactions
+- **Focus Management**: Visible focus indicators and logical tab order
+- **ARIA Labels**: Proper labeling for screen readers
+- **Color Contrast**: WCAG AA+ compliance
+- **Semantic HTML**: Proper heading hierarchy and landmarks
+
+### Responsive Breakpoints
+- **Mobile**: < 640px (sm)
+- **Tablet**: 640px-1024px (md-lg)
+- **Desktop**: > 1024px (xl)
+
+## Page-by-Page Functionality
+
+### Header Component
+- **Fixed positioning** with backdrop blur effect
+- **Active section highlighting** based on scroll position
+- **Mobile hamburger menu** with slide-down animation
+- **Smooth scroll navigation** to page sections
+- **Focus management** for accessibility
+
+### Hero Section
+- **Gradient text effects** for name display
+- **Animated background elements** (bouncing chevron)
+- **CTA buttons** with hover effects and focus states
+- **Contact information** display
+- **Responsive typography** scaling
+
+### Skills Section
+- **Category filtering** with animated transitions
+- **Grid layout** with responsive columns
+- **Hover effects** on skill cards
+- **Staggered animations** for card entrance
+- **Tag-based organization** of technical skills
+
+### Experience Section
+- **Timeline visualization** with gradient connector
+- **Company logo placeholders** with icon fallbacks
+- **Achievement highlighting** with bullet points
+- **Leadership callouts** with special styling
+- **Hover effects** on experience cards
+
+### Projects Section
+- **Card grid layout** with hover animations
+- **Modal system** for detailed project views
+- **Image galleries** with navigation controls
+- **Technology tag display** with overflow handling
+- **Metrics visualization** with icon indicators
+- **Responsive modal** with scroll management
+
+### Final Year Project Section
+- **Featured layout** with larger visual prominence
+- **Multi-image gallery** with thumbnail navigation
+- **Technical metrics grid** with icon visualization
+- **Download CTA** for research documentation
+- **Detailed specifications** in expandable format
+
+### Education Section
+- **Institution timeline** with degree details
+- **Achievement highlighting** (GPA, grades)
+- **Subject tag display** for technical courses
+- **Responsive card layout** with hover effects
+
+### Contact Section
+- **Form validation** with real-time feedback
+- **Subject categorization** via dropdown
+- **Success/error states** with appropriate messaging
+- **Accessibility features** (labels, focus management)
+- **Privacy notice** for data handling transparency
+
+### Footer Section
+- **Social media links** with hover animations
+- **Copyright information** with current year
+- **Minimal design** maintaining visual hierarchy
+
+## State Management Schema
+
+### App Component State
+```typescript
+interface AppState {
+  activeSection: string; // Current viewport section
+}
+```
+
+### Header Component State
+```typescript
+interface HeaderState {
+  isMenuOpen: boolean; // Mobile menu visibility
+}
+```
+
+### Skills Component State
+```typescript
+interface SkillsState {
+  selectedCategory: string; // Active skill filter
+}
+```
+
+### Projects Component State
+```typescript
+interface ProjectsState {
+  selectedProject: number | null; // Active modal project
+}
+```
+
+### FinalYearProject Component State
+```typescript
+interface FYPState {
+  selectedImage: number; // Active gallery image
+}
+```
+
+### Contact Component State
+```typescript
+interface ContactState {
+  formData: {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+  };
+  isSubmitting: boolean;
+  isSubmitted: boolean;
+  error: string;
+}
+```
+
+## Data Models
+
+### Project Object Schema
+```typescript
+interface Project {
+  id: number;
+  title: string;
+  tools: string;
+  summary: string;
+  icon: LucideIcon;
+  metrics: string[];
+  description: string;
+  tech: string[];
+  imageUrl: string;
+}
+```
+
+### Skill Category Schema
+```typescript
+interface SkillCategories {
+  [category: string]: string[];
+}
+```
+
+### Navigation Item Schema
+```typescript
+interface NavigationItem {
+  name: string;
+  href: string;
+}
+```
+
+## Event Handling & Interactions
+
+### Scroll Management
+- **Intersection Observer**: Could be implemented for better performance
+- **Throttled Scroll Events**: Current implementation uses direct scroll listeners
+- **Section Detection**: Based on scroll position + offset calculations
+
+### Modal Management
+- **Escape Key Handling**: Close modals with keyboard
+- **Click Outside**: Close modals when clicking backdrop
+- **Focus Trapping**: Maintain focus within modal content
+- **Body Scroll Lock**: Prevent background scrolling when modal open
+
+### Form Handling
+- **Real-time Validation**: Validate on input change
+- **Submit Prevention**: Prevent submission with invalid data
+- **Loading States**: Show spinner during submission
+- **Success Feedback**: Clear success messaging
+
+## Performance Considerations
+
+### Bundle Optimization
+- **Code Splitting**: Components are modular for potential lazy loading
+- **Tree Shaking**: Unused Lucide icons are automatically removed
+- **CSS Purging**: Tailwind removes unused styles in production
+
+### Image Optimization
+- **External CDN**: Using Pexels for optimized image delivery
+- **Responsive Images**: Could implement srcset for different screen sizes
+- **Lazy Loading**: Could be added for below-fold images
+
+### Animation Performance
+- **Hardware Acceleration**: Using transform and opacity for animations
+- **Reduced Motion**: Could implement prefers-reduced-motion support
+- **Efficient Transitions**: Using CSS transforms instead of layout changes
+
+## SEO & Metadata
+
+### Meta Tags
+- **Title**: "Shaheer Farrukh — Mechanical Engineer | CFD & Thermal Systems"
+- **Description**: From CV Profile Summary
+- **Open Graph**: Social media sharing optimization
+- **Twitter Cards**: Enhanced social sharing
+- **Structured Data**: JSON-LD for search engines
+
+### Content Strategy
+- **Semantic HTML**: Proper heading hierarchy (h1-h6)
+- **Alt Text**: Descriptive image alternatives
+- **Link Text**: Descriptive anchor text for screen readers
+
+## Security Considerations
+
+### Form Security
+- **Input Validation**: Client-side validation for UX
+- **XSS Prevention**: React's built-in protection
+- **CSRF Protection**: Would need server-side implementation
+- **Rate Limiting**: Would need server-side implementation
+
+### External Links
+- **rel="noopener noreferrer"**: Prevents window.opener attacks
+- **Target="_blank"**: Opens external links in new tabs
+
+## Deployment & Build Process
+
+### Build Configuration
+- **Vite Config**: Optimized for React with Lucide exclusion
+- **TypeScript**: Strict mode enabled for type safety
+- **ESLint**: Code quality and consistency enforcement
+- **PostCSS**: Tailwind processing and autoprefixing
+
+### Environment Variables
+- **Development**: Vite dev server on localhost
+- **Production**: Static build output in dist/ directory
+- **Assets**: Bundled and optimized automatically
+
+## Accessibility Implementation
+
+### WCAG Compliance
+- **Color Contrast**: AA+ compliance with high contrast ratios
+- **Keyboard Navigation**: Full keyboard accessibility
+- **Screen Readers**: Proper ARIA labels and semantic markup
+- **Focus Management**: Visible focus indicators
+
+### Interactive Elements
+- **Button States**: Hover, focus, active, disabled
+- **Form Labels**: Explicit label associations
+- **Error Messages**: Clear validation feedback
+- **Loading States**: Accessible loading indicators
+
+## Content Management
+
+### CV Data Mapping
+- **Hero**: Name, title, profile summary (2-line version)
+- **Skills**: Direct mapping from CV skills section
+- **Experience**: Work experience with exact dates and achievements
+- **Projects**: All 4 projects with complete descriptions and metrics
+- **FYP**: Featured with full technical details
+- **Education**: Academic background with grades and subjects
+- **Contact**: Email and LinkedIn from CV
+
+### Image Strategy
+- **Project Images**: Stock photos representing project concepts
+- **FYP Gallery**: Multiple technical visualization images
+- **Alt Text**: Descriptive alternatives for all images
+- **Captions**: Explanatory text for complex visuals
+
+## Future Enhancement Opportunities
+
+### Performance Improvements
+1. **Image Optimization**: Implement next-gen formats (WebP, AVIF)
+2. **Lazy Loading**: Add intersection observer for images
+3. **Code Splitting**: Implement route-based splitting
+4. **Service Worker**: Add offline capability
+
+### Feature Additions
+1. **Blog Section**: Technical articles and research updates
+2. **Project Filtering**: Filter by technology or domain
+3. **Dark/Light Mode**: Theme switching capability
+4. **Language Support**: Multi-language content
+5. **Analytics**: User behavior tracking
+6. **Search**: Site-wide content search
+
+### Technical Enhancements
+1. **Animation Library**: Framer Motion for advanced animations
+2. **Form Backend**: Real email sending capability
+3. **CMS Integration**: Content management system
+4. **Testing**: Unit and integration test suite
+5. **CI/CD**: Automated deployment pipeline
+
+## Development Workflow
+
+### Local Development
+1. **Setup**: `npm install` to install dependencies
+2. **Development**: `npm run dev` starts Vite dev server
+3. **Linting**: `npm run lint` for code quality checks
+4. **Building**: `npm run build` creates production bundle
+5. **Preview**: `npm run preview` serves production build
+
+### Code Standards
+- **TypeScript**: Strict mode with proper typing
+- **ESLint**: Enforced code style and quality
+- **Component Structure**: Functional components with hooks
+- **CSS Classes**: Tailwind utility-first approach
+- **File Naming**: PascalCase for components, camelCase for utilities
+
+## Browser Support
+- **Modern Browsers**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+- **Mobile**: iOS Safari 14+, Chrome Mobile 90+
+- **Features Used**: ES2020, CSS Grid, Flexbox, CSS Custom Properties
+
+## Maintenance Guidelines
+
+### Regular Updates
+1. **Dependencies**: Monthly security updates
+2. **Content**: Update CV information as needed
+3. **Images**: Refresh project visuals periodically
+4. **Performance**: Monitor Core Web Vitals
+
+### Content Updates
+1. **Projects**: Add new projects to Projects.tsx data array
+2. **Skills**: Update skillCategories object in Skills.tsx
+3. **Experience**: Add new roles to Experience.tsx
+4. **Contact**: Update email/phone in multiple components
+
+### Code Maintenance
+1. **Type Safety**: Maintain strict TypeScript compliance
+2. **Component Isolation**: Keep components focused and modular
+3. **Performance**: Monitor bundle size and loading times
+4. **Accessibility**: Regular accessibility audits
+
+## Error Handling
+
+### Form Validation
+- **Required Fields**: Name, email, message validation
+- **Email Format**: Regex validation for email addresses
+- **Error Display**: User-friendly error messages
+- **Recovery**: Clear error states on input change
+
+### Image Loading
+- **Fallback Images**: Graceful degradation for failed loads
+- **Alt Text**: Meaningful alternatives for all images
+- **Loading States**: Placeholder content during load
+
+## Integration Points
+
+### External Services
+- **Pexels**: Stock photography CDN
+- **Email**: Direct mailto links for contact
+- **LinkedIn**: External profile linking
+- **Form Submission**: Ready for backend integration
+
+### Analytics Integration Points
+- **Page Views**: Track section visibility
+- **User Interactions**: Button clicks, form submissions
+- **Performance**: Core Web Vitals monitoring
+- **Conversion**: Contact form completion rates
+
+## Security Best Practices
+
+### Client-Side Security
+- **Input Sanitization**: React's built-in XSS protection
+- **External Links**: Proper rel attributes
+- **Form Validation**: Client-side validation for UX only
+- **Content Security**: No inline scripts or styles
+
+### Privacy Considerations
+- **Data Collection**: Minimal personal data collection
+- **Third-Party**: Only Pexels for images (no tracking)
+- **Contact Form**: Clear privacy notice included
+- **Analytics**: Ready for privacy-compliant implementation
+
+## Testing Strategy
+
+### Manual Testing Checklist
+1. **Navigation**: All scroll links work correctly
+2. **Responsive**: Test all breakpoints (mobile, tablet, desktop)
+3. **Forms**: Validation and submission flow
+4. **Modals**: Open/close functionality and focus management
+5. **Accessibility**: Keyboard navigation and screen reader compatibility
+
+### Automated Testing Opportunities
+1. **Unit Tests**: Component rendering and state management
+2. **Integration Tests**: User interaction flows
+3. **E2E Tests**: Complete user journeys
+4. **Performance Tests**: Bundle size and loading metrics
+5. **Accessibility Tests**: Automated a11y auditing
+
+## Deployment Configuration
+
+### Build Output
+- **Static Files**: HTML, CSS, JS, and assets
+- **Asset Optimization**: Minification and compression
+- **Source Maps**: Available for debugging
+- **Cache Headers**: Optimized for CDN delivery
+
+### Hosting Requirements
+- **Static Hosting**: Any CDN or static host (Netlify, Vercel, etc.)
+- **HTTPS**: Required for modern web features
+- **Custom Domain**: Easy to configure
+- **Analytics**: Ready for integration
+
+This documentation provides a complete technical overview for any developer who needs to maintain, extend, or modify this portfolio website in the future.
