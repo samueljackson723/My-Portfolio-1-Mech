@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
             Mechanical Engineer
           </div>
           <div className="text-lg text-yellow-400 font-medium mb-6 leading-relaxed">
-            3D Modeling • DFM • Simulation • Mesh Optimization  
+            3D Modeling • DFM • Simulation • Mesh  
           </div>
           <div className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed text-center">
             Simulation-focused engineer specializing in 3D modeling and design for manufacturability (DFM). Strong emphasis on CAD-driven workflows to create accurate 3D models, validate performance through simulation, and optimize parts and assemblies for efficient production. Skilled at bridging design intent and manufacturing constraints to deliver robust, production-ready components.
@@ -59,18 +59,7 @@ const Hero: React.FC = () => {
           </button>
         </div>
 
-        <div className="flex justify-center space-x-6 text-gray-400">
-          <div className="flex items-center space-x-2">
-            <Phone size={16} />
-            <a 
-              href="https://wa.me/923118260157"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm hover:text-cyan-400 transition-colors duration-300"
-            >
-              +92 311 8260157
-            </a>
-          </div>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-0 md:space-x-6 text-gray-400">
           <div className="flex items-center space-x-2">
             <Mail size={16} />
             <span className="text-sm">shaheerfarrukh723@gmail.com</span>
@@ -84,6 +73,17 @@ const Hero: React.FC = () => {
               className="text-sm hover:text-cyan-400 transition-colors duration-300"
             >
               LinkedIn
+            </a>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Phone size={16} />
+            <a 
+              href="https://wa.me/923118260157"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm hover:text-cyan-400 transition-colors duration-300"
+            >
+              +92 311 8260157
             </a>
           </div>
         </div>
