@@ -33,12 +33,12 @@ const FinalYearProject: React.FC = () => {
   ];
 
   const keyMetrics = [
-    { label: "Wall Shear Stress", value: "6.95 Pa", icon: Activity },
-    { label: "Velocity Resolution", value: "0.77 m/s", icon: Target },
+    { label: "Wall Shear Stress", value: "36.0 Pa", icon: Activity },
+    { label: "Velocity Resolution", value: "0.892 m/s", icon: Target },
     { label: "Mesh Optimization", value: "0.4 mm", icon: Brain },
     { label: "ML Accuracy", value: "<5% error", icon: Brain },
-    { label: "Cost Reduction", value: "30%", icon: Target },
-    { label: "Accuracy Gain", value: "20%", icon: Activity }
+    { label: "Cost Reduction", value: "15%", icon: Target },
+    { label: "Accuracy Gain", value: "5%", icon: Activity }
   ];
 
   return (
@@ -133,9 +133,9 @@ const FinalYearProject: React.FC = () => {
                 <div className="flex items-start space-x-3">
                   <Brain size={20} className="text-yellow-400 mt-1 flex-shrink-0" />
                   <div>
-                    <div className="text-white font-semibold mb-1">AI-Driven Analytics</div>
+                    <div className="text-white font-semibold mb-1">Hyperthermic Analysis</div>
                     <div className="text-gray-300 text-sm">
-                      Pioneered ML regression models trained on CFD/FSI datasets to classify plaque vulnerability with &lt;5% error
+                    heating lowered viscosity, increased peak velocity, reduced recirculation, and improved compliance and wall-shear uniformity
                     </div>
                   </div>
                 </div>

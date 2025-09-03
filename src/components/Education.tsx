@@ -44,7 +44,7 @@ const Education: React.FC = () => {
                     <span>Technical Subjects:</span>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {['CFD', 'Numerical Methods', 'Thermodynamics', 'Mechanics of Machine', 'Entrepreneurship'].map((subject) => (
+                    {['CFD in ANSYS', 'CAD in SolidWorks', 'Thermodynamics', 'Mechanics of Machine', 'Manufacturing Processes'].map((subject) => (
                       <span
                         key={subject}
                         className="px-4 py-2 bg-slate-700/50 text-gray-300 text-sm font-medium rounded-full border border-slate-600"

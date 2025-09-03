@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, ExternalLink } from 'lucide-react';
+import { Mail, ExternalLink, Phone } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const handleScrollToProjects = () => {
@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
             Mechanical Engineer
           </div>
           <div className="text-lg text-yellow-400 font-medium mb-6 leading-relaxed">
-            Simulation • 3D Modeling • DFM • CFD
+            3D Modeling • DFM • Simulation • Mesh Optimization  
           </div>
           <div className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed text-center">
             Simulation-focused engineer specializing in 3D modeling and design for manufacturability (DFM). Strong emphasis on CAD-driven workflows to create accurate 3D models, validate performance through simulation, and optimize parts and assemblies for efficient production. Skilled at bridging design intent and manufacturing constraints to deliver robust, production-ready components.
@@ -60,6 +60,17 @@ const Hero: React.FC = () => {
         </div>
 
         <div className="flex justify-center space-x-6 text-gray-400">
+          <div className="flex items-center space-x-2">
+            <Phone size={16} />
+            <a 
+              href="https://wa.me/923118260157"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm hover:text-cyan-400 transition-colors duration-300"
+            >
+              +92 311 8260157
+            </a>
+          </div>
           <div className="flex items-center space-x-2">
             <Mail size={16} />
             <span className="text-sm">shaheerfarrukh723@gmail.com</span>

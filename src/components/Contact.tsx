@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle, Mail, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Phone } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -94,7 +94,7 @@ const Contact: React.FC = () => {
             Get in <span className="text-cyan-400">Touch</span>
           </h2>
           <p className="text-xl text-gray-400">
-            Let's discuss opportunities in CFD, thermal systems, or sustainable energy
+            Let's discuss opportunities in 3D Modeling, Simulation, CFD, OR DFM
           </p>
         </div>
 
@@ -192,7 +192,18 @@ const Contact: React.FC = () => {
             </button>
           </form>
 
-          <div className="mt-6 text-center">
+          <div className="mt-6 text-center space-y-2">
+            <div className="flex items-center justify-center gap-2 text-gray-300">
+              <Phone size={16} />
+              <a
+                href="https://wa.me/923118260157"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm hover:text-cyan-400 transition-colors duration-300"
+              >
+                +92 311 8260157
+              </a>
+            </div>
             <p className="text-xs text-gray-500">
               Your contact details will be used only to respond to this inquiry.
             </p>
